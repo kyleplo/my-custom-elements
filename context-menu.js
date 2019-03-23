@@ -4,6 +4,8 @@ class ContextMenu extends HTMLElement {
   var shadow = this.attachShadow({mode: 'open'});
   this.wrapper = document.createElement('ul');
   this.wrapper.classList.add("menu-wrapper");
+  var innerSlot = document.createElement("SLOT");
+  this.wrapper.appendChild(innerSlot);
   var menuHtml = "";
   var items = (this.getAttribute("menu") ? this.getAttribute("menu").split(";") : []);
   for(var i = 0;i < items.length;i++){
